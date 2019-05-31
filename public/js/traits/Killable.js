@@ -27,4 +27,15 @@ export default class Killable extends Trait {
             }
         }
     }
+
+    level2(entity, deltaTime, level) {
+        if (this.dead) {
+            this.deadTime += deltaTime;
+            if (this.deadTime > this.removeAfter) {
+                this.queue(() => {
+                    level.entities.delete(entity);
+                });
+            }
+        }
+    }
 }

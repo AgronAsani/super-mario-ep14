@@ -5,9 +5,9 @@ import Physics from '../traits/Physics.js';
 import Solid from '../traits/Solid.js';
 import {loadSpriteSheet} from '../loaders.js';
 
-export function loadFinish() {
-    return loadSpriteSheet('finish')
-        .then(createFinishFactory);
+export function loadFire() {
+    return loadSpriteSheet('fire')
+        .then(createFireFactory);
 }
 
 
@@ -24,7 +24,6 @@ class Behavior extends Trait {
         if (them.stomper) {
             if (them.vel.y > us.vel.y) {
                 them.killable.kill();
-
                 // us.pendulumMove.speed = 0;
             } else if(them.vel.y < us.vel.y){
                 them.killable.kill();
@@ -37,33 +36,33 @@ class Behavior extends Trait {
 }
 
 
-function createFinishFactory(sprite) {
+function createFireFactory(sprite) {
     const walkAnim = sprite.animations.get('walk');
 
-    function routeAnim(finsih) {
-        if (finsih.killable.dead) {
+    function routeAnim(hole) {
+        if (hole.killable.dead) {
             return 'flat';
         }
 
-        return walkAnim(finsih.lifetime);
+        return walkAnim(hole.lifetime);
     }
 
-    function drawFinish(context) {
+    function drawHole(context) {
         sprite.draw(routeAnim(this), context, 0, 0);
     }
 
-    return function createFinish() {
-        const finsih = new Entity();
-        finsih.size.set(16, 16);
+    return function createHole() {
+        const fire = new Entity();
+        fire.size.set(16, 16);
 
-      //  finsih.addTrait(new Physics());
-        finsih.addTrait(new Solid());
-     //   finsih.addTrait(new PendulumMove());
-        finsih.addTrait(new Behavior());
-        finsih.addTrait(new Killable());
+        //hole.addTrait(new Physics());
+        fire.addTrait(new Solid());
+        //hole.addTrait(new PendulumMove());
+        fire.addTrait(new Behavior());
+        fire.addTrait(new Killable());
 
-        finsih.draw = drawFinish;
+        fire.draw = drawHole;
 
-        return finsih;
+        return fire;
     };
 }

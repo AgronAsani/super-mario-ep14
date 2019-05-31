@@ -27,4 +27,14 @@ export default class PlayerController extends Trait {
             this.time -= deltaTime * 2;
         }
     }
+
+    level2(entity, deltaTime, level) {
+        if (!level.entities.has(this.player)) {
+            this.player.killable.revive();
+            this.player.pos.set(128, 128);
+            level.entities.add(this.player);
+        } else {
+            this.time -= deltaTime * 2;
+        }
+    }
 }
