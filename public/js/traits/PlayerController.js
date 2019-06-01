@@ -8,6 +8,7 @@ export default class PlayerController extends Trait {
         this.player = null;
         this.score = 0;
         this.time = 0;
+        this.highscore = 0;
     }
 
     setPlayer(entity) {
@@ -25,7 +26,27 @@ export default class PlayerController extends Trait {
             level.entities.add(this.player);
         } else {
             this.time += deltaTime * 2;
+            if (this.player.pos.x >= 3200 && this.player.pos.x <= 3210){
+                this.highscore = this.time;
+                console.log(this.highscore);
+                document.getElementById("test").innerHTML = this.highscore.toFixed().toString().padStart(1, '0')+ " seconds";
+                var btn = document.getElementById("button");
+                btn.style.display = 'block';
+                setTimeout(this.end,10000);
+                document.onkeypress(function(e){
+                    return false;
+                });
+                btn.click(function(){
+                    console.log('Test');
+                });
+            }
+
         }
+    }
+
+    end() {
+        window.open('http://localhost:63342/super-mario/public/menu.html', '_self');
+        return;
     }
 
     level2(entity, deltaTime, level) {
@@ -37,4 +58,5 @@ export default class PlayerController extends Trait {
             this.time -= deltaTime * 2;
         }
     }
+
 }
