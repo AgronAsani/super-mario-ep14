@@ -45,7 +45,7 @@ export default class PlayerController extends Trait {
     }
 
     end() {
-        window.open('http://localhost:63342/super-mario/public/menu.html', '_self');
+        window.open('../public/menu.html', '_self');
         return;
     }
 
