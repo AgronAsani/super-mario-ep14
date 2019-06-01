@@ -33,12 +33,10 @@ export default class PlayerController extends Trait {
                 var btn = document.getElementById("button");
                 btn.style.display = 'block';
                 setTimeout(this.end,10000);
-                document.onkeypress(function(e){
+                document.onkeydown = function (e) {
+                    e.preventDefault();
                     return false;
-                });
-                btn.click(function(){
-                    console.log('Test');
-                });
+                }
             }
 
         }
