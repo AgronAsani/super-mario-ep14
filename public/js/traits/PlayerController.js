@@ -26,7 +26,7 @@ export default class PlayerController extends Trait {
             level.entities.add(this.player);
         } else {
             this.time += deltaTime * 2;
-            if (this.player.pos.x >= 3200 && this.player.pos.x <= 3210){
+            if (this.player.pos.x >= 6200 && this.player.pos.x <= 6210){
                 this.highscore = this.time;
                 console.log(this.highscore);
                 document.getElementById("test").innerHTML = this.highscore.toFixed().toString().padStart(1, '0')+ " seconds";
