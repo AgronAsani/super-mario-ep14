@@ -6,7 +6,6 @@ import {createLevelLoader} from './loaders/level.js';
 import {loadFont} from './loaders/font.js';
 import {loadEntities} from './entities.js';
 import {setupKeyboard} from './input.js';
-import {createCollisionLayer} from './layers/collision.js';
 import {createDashboardLayer} from './layers/dashboard.js';
 
 function createPlayerEnv(playerEntity) {
@@ -18,7 +17,7 @@ function createPlayerEnv(playerEntity) {
     return playerEnv;
 }
 
-//test
+
 async function main(canvas) {
 
 
