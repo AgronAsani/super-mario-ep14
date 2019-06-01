@@ -1,6 +1,6 @@
 import {Trait} from '../Entity.js';
 import {Vec2} from '../math.js';
-
+//test
 export default class PlayerController extends Trait {
     constructor() {
         super('playerController');
