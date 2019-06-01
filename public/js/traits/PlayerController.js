@@ -7,7 +7,7 @@ export default class PlayerController extends Trait {
         this.checkpoint = new Vec2(0, 0);
         this.player = null;
         this.score = 0;
-        this.time = 300;
+        this.time = 0;
     }
 
     setPlayer(entity) {
@@ -24,7 +24,7 @@ export default class PlayerController extends Trait {
             this.player.pos.set(this.checkpoint.x, this.checkpoint.y);
             level.entities.add(this.player);
         } else {
-            this.time -= deltaTime * 2;
+            this.time += deltaTime * 2;
         }
     }
 
@@ -34,7 +34,7 @@ export default class PlayerController extends Trait {
             this.player.pos.set(128, 128);
             level.entities.add(this.player);
         } else {
-            this.time -= deltaTime * 2;
+            this.time += deltaTime * 2;
         }
     }
 }
