@@ -26,26 +26,30 @@ export default class PlayerController extends Trait {
             level.entities.add(this.player);
         } else {
             this.time += deltaTime * 2;
-            if (this.player.pos.x >= 6200 && this.player.pos.x <= 6210){
+            if (this.player.pos.x >= 3200 && this.player.pos.x <= 3210) {
                 this.highscore = this.time;
                 console.log(this.highscore);
-                document.getElementById("test").innerHTML = this.highscore.toFixed().toString().padStart(1, '0')+ " seconds";
+                document.getElementById("test").innerHTML = this.highscore.toFixed().toString().padStart(1, '0') + " seconds";
                 var btn = document.getElementById("button");
                 btn.style.display = 'block';
-                setTimeout(this.end,10000);
-                document.onkeydown = function (e) {
-                    e.preventDefault();
-                    return false;
-                }
+                setTimeout(this.end, 10000);
             }
 
         }
     }
 
+
+
     end() {
-        window.open('../public/menu.html', '_self');
+        window.open('http://localhost:63342/super-mario/public/menu.html', '_self');
         return;
     }
+
+    replay() {
+        this.player.pos.set(2900, 64);
+        console.log("Yes");
+    }
+
 
     level2(entity, deltaTime, level) {
         if (!level.entities.has(this.player)) {
