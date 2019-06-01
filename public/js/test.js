@@ -18,20 +18,17 @@ function createPlayerEnv(playerEntity) {
     return playerEnv;
 }
 
-async function main(canvas) {
-
-
-
+function test(canvas) {
     const context = canvas.getContext('2d');
 
-    const [entityFactory, font] = await Promise.all([
+    const [entityFactory, font] =  Promise.all([
         loadEntities(),
         loadFont(),
     ]);
 
-    const loadLevel = await createLevelLoader(entityFactory);
+    const loadLevel =  createLevelLoader(entityFactory);
 
-    const level = await loadLevel('1-1');
+    const level =  loadLevel('1-1');
 
     const camera = new Camera();
 
