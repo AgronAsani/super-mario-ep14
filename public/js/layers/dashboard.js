@@ -11,7 +11,7 @@ export function createDashboardLayer(font, playerEnv) {
         font.print('MARIO', context, 16, LINE1);
         font.print(score.toString().padStart(6, '0'), context, 16, LINE2);
 
-        font.print('HIGHSCORE', context, 70, LINE1)
+        font.print('SCORE', context, 85, LINE1)
         font.print(highscore.toFixed().toString().padStart(3, '0'), context, 96, LINE2);
 
         font.print('WORLD', context, 152, LINE1);
