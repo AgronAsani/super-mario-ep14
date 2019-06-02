@@ -1,6 +1,5 @@
 import Entity, {Sides, Trait} from '../Entity.js';
 import Killable from '../traits/Killable.js';
-import PendulumMove from '../traits/PendulumMove.js';
 import Physics from '../traits/Physics.js';
 import Solid from '../traits/Solid.js';
 import {loadSpriteSheet} from '../loaders.js';
@@ -57,7 +56,6 @@ function createHoleFactory(sprite) {
 
         hole.addTrait(new Physics());
         hole.addTrait(new Solid());
-        //hole.addTrait(new PendulumMove());
         hole.addTrait(new Behavior());
         hole.addTrait(new Killable());
 
