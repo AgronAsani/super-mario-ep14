@@ -40,9 +40,11 @@ export default class PlayerController extends Trait {
                     ev.returnValue = false;
                 }
 
-            }
-            btn.addEventListener("click",this.replay);
+            };
             setTimeout(this.end, 10000);
+            btn.addEventListener("click",this.replay);
+            this.stop();
+
         }
     }
 
@@ -54,7 +56,10 @@ export default class PlayerController extends Trait {
     replay(){
         window.open('http://localhost:63342/super-mario/public/index.html', '_self');
         return;
-        console.log("Test");
+    }
+
+    stop(){
+        requestAnimationFrame(this.highscore);
     }
 
 

@@ -13,12 +13,15 @@ export default class Go extends Trait {
         this.heading = 1;
     }
 
+    //velocity is the speed
+    //delta time is the time between the old and the new frame
     update(entity, deltaTime) {
         const absX = Math.abs(entity.vel.x);
 
         if (this.dir !== 0) {
             entity.vel.x += this.acceleration * deltaTime * this.dir;
 
+            //Define the head position
             if (entity.jump) {
                 if (entity.jump.falling === false) {
                     this.heading = this.dir;

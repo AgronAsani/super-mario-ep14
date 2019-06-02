@@ -8,6 +8,7 @@ export default class Killable extends Trait {
         this.removeAfter = 2;
     }
 
+    //First in First Out --> Storing current state
     kill() {
         this.queue(() => this.dead = true);
     }
@@ -28,14 +29,4 @@ export default class Killable extends Trait {
         }
     }
 
-    level2(entity, deltaTime, level) {
-        if (this.dead) {
-            this.deadTime += deltaTime;
-            if (this.deadTime > this.removeAfter) {
-                this.queue(() => {
-                    level.entities.delete(entity);
-                });
-            }
-        }
-    }
 }

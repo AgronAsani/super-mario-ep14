@@ -1,6 +1,7 @@
 import TileResolver from './TileResolver.js';
 import {Sides} from './Entity.js';
 
+//Sies are set in Solid.js
 export default class TileCollider {
     constructor(tileMatrix) {
         this.tiles = new TileResolver(tileMatrix);

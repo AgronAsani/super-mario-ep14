@@ -15,14 +15,18 @@ export function loadMario() {
     .then(createMarioFactory);
 }
 
+//Creating Mario with his carachteristics
 function createMarioFactory(sprite) {
+    //load run animaation when running
     const runAnim = sprite.animations.get('run');
 
     function routeFrame(mario) {
         if (mario.jump.falling) {
+            //load jump image when jumping
             return 'jump';
         }
 
+        //load normal image when not moving
         if (mario.go.distance > 0) {
             if ((mario.vel.x > 0 && mario.go.dir < 0) || (mario.vel.x < 0 && mario.go.dir > 0)) {
                 return 'break';
