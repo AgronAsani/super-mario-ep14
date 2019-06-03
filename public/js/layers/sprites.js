@@ -10,6 +10,7 @@ export function createSpriteLayer(entities, width = 64, height = 64) {
 
             entity.draw(spriteBufferContext);
 
+
             context.drawImage(
                 spriteBuffer,
                 entity.pos.x - camera.pos.x,

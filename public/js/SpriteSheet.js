@@ -3,6 +3,7 @@ export default class SpriteSheet {
         this.image = image;
         this.width = width;
         this.height = height;
+
         this.tiles = new Map();
         this.animations = new Map();
     }
@@ -12,11 +13,6 @@ export default class SpriteSheet {
     }
 
     define(name, x, y, width, height) {
-                                                                                        if(name == 'idle'){
-                                                                                            console.log('5. daten von json werden hervorgehoben -> idle')
-                                                                                            console.log(this.image, name, x,y,width,height);
-
-                                                                                        }
 
 
         const buffers = [false, true].map(flip => {
@@ -25,11 +21,7 @@ export default class SpriteSheet {
             buffer.height = height;
 
             const context = buffer.getContext('2d');
-                                                                                            if(name == 'idle'){
-                                                                                                console.log('6. Flip')
-                                                                                                console.log(flip);
 
-                                                                                            }
 
             if (flip) {
                 context.scale(-1, 1);

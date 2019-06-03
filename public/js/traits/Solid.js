@@ -9,6 +9,7 @@ export default class Solid extends Trait {
     obstruct(entity, side, match) {
         if (!this.obstructs) {
             return;
+
         }
 
         if (side === Sides.BOTTOM) {

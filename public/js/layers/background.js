@@ -1,7 +1,6 @@
 import TileResolver from '../TileResolver.js';
 
 export function createBackgroundLayer(level, tiles, sprites) {
-    console.log(level, tiles, sprites)
     const resolver = new TileResolver(tiles);
 
     const buffer = document.createElement('canvas');
@@ -9,12 +8,14 @@ export function createBackgroundLayer(level, tiles, sprites) {
     buffer.height = 240;
 
     const context = buffer.getContext('2d');
-    console.log('test');
+
     function redraw(startIndex, endIndex)  {
+
         context.clearRect(0, 0, buffer.width, buffer.height);
-        console.log(startIndex, endIndex);
+
         for (let x = startIndex; x <= endIndex; ++x) {
             const col = tiles.grid[x];
+
             if (col) {
                 col.forEach((tile, y) => {
 
@@ -33,6 +34,7 @@ export function createBackgroundLayer(level, tiles, sprites) {
         const drawWidth = resolver.toIndex(camera.size.x);
         const drawFrom = resolver.toIndex(camera.pos.x);
         const drawTo = drawFrom + drawWidth;
+
         redraw(drawFrom, drawTo);
 
         context.drawImage(buffer,

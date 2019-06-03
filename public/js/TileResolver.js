@@ -2,6 +2,8 @@ export default class TileResolver {
     constructor(matrix, tileSize = 16) {
         this.matrix = matrix;
         this.tileSize = tileSize;
+
+
     }
 
     toIndex(pos) {

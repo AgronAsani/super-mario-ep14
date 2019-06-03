@@ -11,7 +11,7 @@ const SLOW_DRAG = 1/1000;
 const FAST_DRAG = 1/5000;
 
 export function loadMario() {
-                                            console.log('Mario wird num vom loadSpriteSheet geladen')
+
     return loadSpriteSheet('mario')
 
     .then(createMarioFactory);
