@@ -12,16 +12,28 @@ export default class SpriteSheet {
     }
 
     define(name, x, y, width, height) {
+                                                                                        if(name == 'idle'){
+                                                                                            console.log('5. daten von json werden hervorgehoben -> idle')
+                                                                                            console.log(this.image, name, x,y,width,height);
+
+                                                                                        }
+
+
         const buffers = [false, true].map(flip => {
             const buffer = document.createElement('canvas');
             buffer.width = width;
             buffer.height = height;
 
             const context = buffer.getContext('2d');
+                                                                                            if(name == 'idle'){
+                                                                                                console.log('6. Flip')
+                                                                                                console.log(flip);
+
+                                                                                            }
 
             if (flip) {
                 context.scale(-1, 1);
-                context.translate(-width, 0);
+                    context.translate(-width, 0);
             }
 
             context.drawImage(
@@ -56,6 +68,7 @@ export default class SpriteSheet {
     }
 
     drawTile(name, context, x, y) {
+
         this.draw(name, context, x * this.width, y * this.height);
     }
 }

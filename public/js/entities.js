@@ -8,7 +8,18 @@ export function loadEntities() {
     const entityFactories = {};
 
     function addAs(name) {
-        return factory => entityFactories[name] = factory;
+        return factory =>{entityFactories[name] = factory
+                                                                                if(name == 'mario'){
+                                                                                    console.log('9. Mario addAs');
+                                                                                    console.log(factory);
+                                                                                    console.log(entityFactories)
+
+                                                                                }
+
+            console.log(entityFactories)
+
+        } ;
+
     }
 
 
@@ -20,4 +31,7 @@ export function loadEntities() {
 
     ])
     .then(() => entityFactories);
+
+
+
 }

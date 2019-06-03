@@ -49,12 +49,12 @@ export default class PlayerController extends Trait {
     }
 
     end() {
-        window.open('http://localhost:63342/super-mario/public/menu.html', '_self');
+        window.open('./public/menu.html', '_self');
         return;
     }
 
     replay(){
-        window.open('http://localhost:63342/super-mario/public/index.html', '_self');
+        window.open('./public/index.html', '_self');
         return;
     }
 
